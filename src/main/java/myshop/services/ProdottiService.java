@@ -26,6 +26,18 @@ public class ProdottiService {
         return prodottiRepository.findById(idProdotto).get();
     }
 
+//    public ProdottoInfoDTO dettaglio(Prodotto prodotto) {
+//        ProdottoInfoDTO dto = new ProdottoInfoDTO();
+//        Long idProdotto = prodotto.getId();
+//        dto.setProdotto(prodotto);
+//        dto.setCopieOrdinate(prodottiRepository.countCopieOrdinateProdotto(idProdotto));
+//        dto.setCopieOrdinatePagate(prodottiRepository.countCopiePagateProdotto(idProdotto));
+//        dto.setOrdiniAssociati(prodottiRepository.countOrdiniConProdotto(idProdotto));
+//        dto.setOrdiniAssociatiPagati(prodottiRepository.countOrdiniPagatiConProdotto(idProdotto));
+//        dto.setClientiOrdinanti(prodottiRepository.countClientiOrdinantiProdotto(idProdotto));
+//        return dto;
+//    }
+
     public ProdottoInfoDTO dettaglio(Long idProdotto) {
         ProdottoInfoDTO dto = new ProdottoInfoDTO();
         dto.setProdotto(prodottiRepository.findById(idProdotto).get());

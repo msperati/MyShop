@@ -1,7 +1,6 @@
 package myshop.controllers;
 
 import myshop.dtos.OrdineDTO;
-import myshop.entities.Cliente;
 import myshop.entities.Ordine;
 import myshop.services.OrdiniService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +21,10 @@ public class OrdiniController {
         return ordiniService.getOrdini();
     }
 
-    @GetMapping(path = "/findAllByCliente")
-    public @ResponseBody List<Ordine> getOrdiniByCliente(@RequestBody Cliente cliente) {
-        return ordiniService.getOrdiniByCliente(cliente);
-    }
+//    @GetMapping(path = "/findAllByCliente")
+//    public @ResponseBody List<Ordine> getOrdiniByCliente(@RequestBody Cliente cliente) {
+//        return ordiniService.getOrdiniByCliente(cliente);
+//    }
 
     @GetMapping(path = "/findAllByCliente/{idCliente}")
     public @ResponseBody List<Ordine> getOrdiniByCliente(@PathVariable Long idCliente) {
@@ -52,10 +51,10 @@ public class OrdiniController {
         return ordiniService.deleteOrdine(idOrdine);
     }
 
-    @DeleteMapping(path = "/delete")
-    public @ResponseBody OrdineDTO deleteOrdine(@RequestBody Ordine ordine) {
-        return ordiniService.deleteOrdine(ordine);
-    }
+//    @DeleteMapping(path = "/delete")
+//    public @ResponseBody OrdineDTO deleteOrdine(@RequestBody Ordine ordine) {
+//        return ordiniService.deleteOrdine(ordine);
+//    }
 
     @PostMapping(path = "/create")
     public @ResponseBody Ordine createOrdine(@RequestBody OrdineDTO ordine) {

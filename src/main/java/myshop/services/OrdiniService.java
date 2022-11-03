@@ -35,9 +35,9 @@ public class OrdiniService {
         return ordiniRepository.findAllByOrderByDataOrdineDesc();
     }
 
-    public List<Ordine> getOrdiniByCliente(Cliente cliente) {
-        return ordiniRepository.findByClienteOrderByDataOrdineDesc(cliente);
-    }
+//    public List<Ordine> getOrdiniByCliente(Cliente cliente) {
+//        return ordiniRepository.findByClienteOrderByDataOrdineDesc(cliente);
+//    }
 
     public List<Ordine> getOrdiniByCliente(Long idCliente) {
         Cliente cliente = clientiRepository.findById(idCliente).get();
@@ -73,22 +73,21 @@ public class OrdiniService {
      * La cancellazione di un'ordine porterà anche alla relativa cancellazione degli ordini prodotto
      * associati, e al riaumento delle quantità in stock dei prodotti ad esso associati
      */
-    @Transactional
-    public OrdineDTO deleteOrdine(Ordine ordine) {
-        List<OrdineProdotto> ordiniProdotto = opRepository.findAllByPkOrdine(ordine);
-        for (OrdineProdotto op : ordiniProdotto) {
-            /** SE CANCELLIAMO UN ORDINE DI PRODOTTO DOBBIAMO ANCHE RISTOCCARE IL PRODOTTO */
-            Prodotto prodotto = op.getPk().getProdotto();
-            prodotto.setDisponibilita(prodotto.getDisponibilita() + op.getQuantita());
-            prodottiRepository.save(prodotto);
-        }
-        ordiniRepository.delete(ordine);
-        OrdineDTO dto = new OrdineDTO();
-        dto.setOrdine(ordine);
-        dto.setOrdiniProdotto(ordiniProdotto);
-        return dto;
-    }
-
+//    @Transactional
+//    public OrdineDTO deleteOrdine(Ordine ordine) {
+//        List<OrdineProdotto> ordiniProdotto = opRepository.findAllByPkOrdine(ordine);
+//        for (OrdineProdotto op : ordiniProdotto) {
+//            /** SE CANCELLIAMO UN ORDINE DI PRODOTTO DOBBIAMO ANCHE RISTOCCARE IL PRODOTTO */
+//            Prodotto prodotto = op.getPk().getProdotto();
+//            prodotto.setDisponibilita(prodotto.getDisponibilita() + op.getQuantita());
+//            prodottiRepository.save(prodotto);
+//        }
+//        ordiniRepository.delete(ordine);
+//        OrdineDTO dto = new OrdineDTO();
+//        dto.setOrdine(ordine);
+//        dto.setOrdiniProdotto(ordiniProdotto);
+//        return dto;
+//    }
     @Transactional
     public Ordine saveOrdine(@NotNull OrdineDTO dto) {
         Ordine ordine = dto.getOrdine();
