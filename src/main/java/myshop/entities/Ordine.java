@@ -33,9 +33,4 @@ public class Ordine {
 
     @Column(name = "spedito")
     private Boolean spedito;
-
-//    @JoinTable(name = "entities.ordine_prodotto")
-//    @OneToMany
-//    //(fetch = FetchType.LAZY, mappedBy = "ordine")
-//    private List<OrdineProdotto> ordiniProdotto;
 }

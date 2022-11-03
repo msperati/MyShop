@@ -87,7 +87,7 @@ public class OrdiniProdottoService {
     }
 
     // PROBABILMENTE INUTILE
-    public OrdineProdotto deleteOrdineProdottoByPk(OrdineProdotto.OP_PK pk) {
+    public OrdineProdotto deleteOrdineProdottoByPk(OrdineProdotto.Pk pk) {
         OrdineProdotto op = ordiniProdottoRepository.findById(pk).get();
         ordiniProdottoRepository.delete(op);
 

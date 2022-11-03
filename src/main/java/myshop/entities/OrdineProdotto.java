@@ -11,16 +11,21 @@ import java.io.Serializable;
 public class OrdineProdotto {
 
     @EmbeddedId
-    OP_PK pk;
+    Pk pk;
     @Column(name = "quantita")
     private Long quantita;
     @Column(name = "prezzo")
     private Long prezzo;
 
+    @Override
+    public String toString() {
+        return quantita + "X " + pk.prodotto.getDescrizione() + " = " + quantita * prezzo;
+    }
+
     @Embeddable
     @Data
-    public static class OP_PK implements Serializable {
-        
+    public static class Pk implements Serializable {
+
         @ManyToOne(cascade = CascadeType.MERGE)
         @JoinColumn(name = "id_ordine")
         private Ordine ordine;

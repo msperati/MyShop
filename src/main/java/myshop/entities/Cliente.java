@@ -28,10 +28,7 @@ public class Cliente {
 
     @Column(name = "telefono")
     private String tel;
-
+    
     @Column(name = "p_iva")
-    private String pIva;
-
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
-//    private List<Ordine> ordini;
+    private String piva;
 }

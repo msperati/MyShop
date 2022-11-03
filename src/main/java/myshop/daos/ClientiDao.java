@@ -1,2 +1,4 @@
-package myshop.daos;public interface ClientiDao {
+package myshop.daos;
+
+public interface ClientiDao {
 }
